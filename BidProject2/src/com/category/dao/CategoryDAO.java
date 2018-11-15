@@ -117,7 +117,7 @@ public class CategoryDAO {
 		}
 		
 		try{
-			pstmt=conn.prepareStatement("SELECT COUNT(*) AS NUM FROM SALES WHERE CAT1 like ?");
+			pstmt=conn.prepareStatement("SELECT COUNT(*) AS NUM FROM SALES WHERE CAT1 like ? AND CONFIRM = 0");
 			pstmt.setString(1, "%"+ cat1 + "%");
 			rs=pstmt.executeQuery();
 		

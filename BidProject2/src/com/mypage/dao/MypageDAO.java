@@ -37,7 +37,9 @@ public class MypageDAO {
 
 	public TradeVO trade(TradeVO tradeVO) {
 		TradeVO vo = factory.openSession().selectOne("myPageMapper.trade", tradeVO);
-
+		System.out.println(vo.getUsername_bidder());
+		System.out.println(vo.getUsername_seller());
+		
 		return vo;
 	}
 

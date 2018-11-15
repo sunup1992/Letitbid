@@ -21,7 +21,7 @@
 <!-- 버튼 바꾸기 -->				
 				<c:if test="${ob.confirm == 1}">
 					<div id="myBid${vs.count}" class="wrap5">
-						<a href="/BidProject/trade.mp?code=${ob.code}&finalPrice=${ob.finalPrice}">낙찰자 연결</a>				
+						<a href="/BidProject/trade.mp?code=${ob.code}&finalPrice=${ob.price}">낙찰자 연결</a>				
 					</div>
 					</c:if>
 				<c:if test="${ob.confirm != 1}">

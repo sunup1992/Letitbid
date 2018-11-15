@@ -17,6 +17,9 @@ public class BoardDAO {
 		List<BoardDTO> list = factory.openSession().selectList("boardNameSpace.boardlist", pg);
 		
 		int n = factory.openSession().selectOne("boardNameSpace.totalCount");
+		if(list.size() == 0) {
+			return list;
+		}
 		list.get(0).setTotal(n);
 		list.get(0).setPg(pg);
 		

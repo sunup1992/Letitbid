@@ -57,14 +57,12 @@ function ajax(value){
         	},
         success : function(responseData){
         	paging(responseData);
-        	console.log(responseData);
         	
         }
     });
 	
 }
 function paging(data){
-	console.log("data[0] : " + data[0].prodname);
 	var total = "<section class=wrap0>";
 	var box1 = "<section class='product1'><div class='photo'><img src='/BidProject/resources/image/"
 	var box2 = ".jpg' style='width:100%; height: 180px;'></div><section class='wrap01'><section class='wrap1'><div class='prodname'><a href='/BidProject/auction.au?code=";
@@ -85,8 +83,7 @@ function paging(data){
 		}
 			
 	
-	var totalP = (data[0].total+9)/10;
-	console.log(totalP);
+	var totalP = Math.floor((data[0].total+9)/10);
 	if(data[0].page != 1){
 		var prepage = parseInt(data[0].page)-1;
 		total += "<div onclick='ajax(" + prepage + ")'><span class='leftarrow'><i class='fas fa-angle-left'></i></span></div>";

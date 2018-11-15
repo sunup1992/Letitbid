@@ -40,7 +40,8 @@ public class MypageController {
 	
 	@RequestMapping(value="/trade.mp", method=RequestMethod.GET)
 	public ModelAndView trade(@ModelAttribute TradeVO tradeVO) {
-		
+		System.out.println(tradeVO.getCode());
+		System.out.println(tradeVO.getFinalPrice());
 		return new ModelAndView("trade","vo", mybidService.trade(tradeVO));
 	}
 	

@@ -3,11 +3,24 @@
 <%@ page import="com.board.dto.*" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <% 
+
+	BoardPaging paging = null;
+	if(((List<BoardDTO>)request.getAttribute("list")).size() != 0){
+		
+
 	int total= ((List<BoardDTO>)request.getAttribute("list")).get(0).getTotal();
 	int pg = ((List<BoardDTO>)request.getAttribute("list")).get(0).getPg();
-	BoardPaging paging = new BoardPaging();
+		paging = new BoardPaging();
 	
-	paging.makePagingHTML(total,pg);
+		paging.makePagingHTML(total,pg);
+	}else{
+			
+		paging = new BoardPaging();
+		
+		paging.makePagingHTML(1,1);
+	}
+
+	
 %>
 
 
