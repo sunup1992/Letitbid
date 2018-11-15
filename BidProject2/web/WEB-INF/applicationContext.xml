@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd">
+
+<context:component-scan base-package="com.user.dao"/>
+<context:component-scan base-package="com.user.service"/>
+<context:component-scan base-package="com.board.dao"/>
+<context:component-scan base-package="com.board.service"/>
+<context:component-scan base-package="com.category.dao"/>
+<context:component-scan base-package="com.category.service"/>
+<context:component-scan base-package="com.auction.dao"/>
+<context:component-scan base-package="com.auction.service"/>
+<context:component-scan base-package="com.sale.dao"/>
+<context:component-scan base-package="com.sale.service"/>
+<context:component-scan base-package="com.mypage.service"/>
+<context:component-scan base-package="com.mypage.dao"/>
+
+
+
+<!-- Connection Pool DataSource -->
+<bean id="dataSource"
+	  class="org.springframework.jdbc.datasource.DriverManagerDataSource"
+	  p:driverClassName="oracle.jdbc.driver.OracleDriver"
+	  p:url="jdbc:oracle:thin:@127.0.0.1:1521:xe"
+	  p:username="edu"
+	  p:password="1234"/>
+	  
+<!-- myBatis -->
+<bean id="mybatis" class="org.mybatis.spring.SqlSessionFactoryBean">
+	<property name="dataSource" ref="dataSource" />
+	<property name="configLocation" value="classpath:mybatis/mybatis-config.xml" />
+	<property name="transactionFactory">
+		<bean class="org.mybatis.spring.transaction.SpringManagedTransactionFactory"/>
+	</property>
+</bean>
+
+</beans>

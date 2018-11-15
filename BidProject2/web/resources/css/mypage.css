@@ -1,0 +1,118 @@
+@charset "UTF-8";
+*{
+	font-family: 'Cinzel';
+}
+
+a{
+	text-decoration: none;
+	color: white;
+}
+
+input{
+	all:unset;
+}
+
+/*BODY*****************************************************************************************************/
+
+body{
+	margin: 0;
+	height: 100%;
+}
+
+section#main {
+	width: 100%;
+	float: left;
+	background-image: url("/BidProject/resources/image/women.jpeg");
+	background-size: cover;
+	height: 200px;
+	z-index: 1;
+}
+
+section#main h1 {
+	color: #DDFFFF;
+	text-shadow: 1px 2px teal; 
+	font-size: 50px;
+	margin: auto;
+	text-align: center;
+	padding-top: 70px;
+	z-index: 2;
+}
+
+section#middle {
+	height: 600px;
+	float: left;
+	width: 100%;
+}
+
+div.cover{
+	margin: auto;
+	width: 70%;
+	height: 90%;
+	padding-top: 40px;
+}
+
+div.cover2{
+	margin: auto;
+	width: 90%;
+	height: 95%;
+}
+
+div.cover2 form{
+	height: 100%;
+}
+
+div.cover2 input{
+	height: 100%;
+	width: 100%;
+	color: rgba(0,0,0,0);
+	
+}
+
+div.cover2 input:hover{
+	height: 100%;
+	width: 100%;
+	background-color: rgba(0,0,0,0.8);
+	color: rgba(255,255,255,1);
+	text-align: center;
+	font-weight: 600;
+	transition: background-color 600ms ease 0ms;
+}
+
+div.cover3{
+	background-image: url("/BidProject/resources/image/watch_mypage.jpg");
+	background-size: cover;
+	display: inline-block;
+	height: 100%;
+	width: 25%;
+	float: left;
+	margin-right: 1%;
+}
+
+div.cover4{
+	background-image: url("/BidProject/resources/image/cups_mypage.jpg");
+	background-size: cover;
+	display: inline-block;
+	height: 100%;
+	width: 24%;
+	float: left;
+}
+
+div.cover5{
+	background-image: url("/BidProject/resources/image/key_mypage.jpg");
+	background-size: cover;
+	display: inline-block;
+	height: 100%;
+	width: 24%;
+	float: right;
+	margin-left: 1%;
+}
+
+div.cover6{
+	background-image: url("/BidProject/resources/image/tea_mypage.jpg");
+	background-size: cover;
+	display: inline-block;
+	height: 100%;
+	width: 24%;
+	float: right;
+	
+}

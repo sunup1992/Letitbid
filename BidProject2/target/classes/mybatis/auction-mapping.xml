@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="auctionMapper">
+	<select id="view" parameterType="java.lang.String" resultType="AuctionVO">
+		<![CDATA[
+			SELECT * FROM SALES WHERE CODE = #{code}
+		]]>
+	</select>
+	<select id="reply" parameterType="java.lang.String" resultType="ReplyVO">
+		<![CDATA[
+			SELECT SEQ,ID,CONTENT,CODE,REF,LEV,STEP,PSEQ,TO_CHAR(LOGTIME,'YYYY.MM.DD')AS LOGTIME FROM (SELECT ROWNUM RN, AA.* FROM(SELECT * FROM REPLY  WHERE CODE = #{code} ORDER BY REF,STEP DESC)AA)
+		]]>
+	</select>
+	<select id="replyTotal" parameterType="java.lang.String" resultType="Integer">
+		<![CDATA[
+			SELECT COUNT(*) FROM REPLY WHERE CODE = #{code}
+		]]>
+	</select>
+	
+	
+	<insert id="insertReply" parameterType="ReplyVO">
+		<![CDATA[
+		INSERT INTO REPLY(SEQ, ID, CONTENT, CODE, REF, LOGTIME) VALUES(SEQ_REPLY.NEXTVAL, #{id}, #{content},#{code}, SEQ_REPLY.CURRVAL,SYSDATE)
+		]]>
+	</insert>
+	
+	
+	
+	
+	
+	<select id="maxPrice" parameterType="java.lang.String" resultType="BidVO">
+		<![CDATA[
+			SELECT FINALPRICE, TERM FROM AUCTION WHERE FINALPRICE = (SELECT MAX(FINALPRICE) AS FINALPRICE FROM AUCTION WHERE CODE = #{code}) AND CODE = #{code}
+		]]>
+	</select>
+	
+	<insert id="bidPlace" parameterType="BidVO">
+		<![CDATA[
+			INSERT INTO AUCTION(ID, CODE, TERM, FINALPRICE) VALUES (#{id}, #{code}, #{term}, #{finalPrice})
+		]]>
+	</insert>
+	
+	<insert id="bidPlaceA" parameterType="BidVO">
+		<![CDATA[
+			INSERT INTO AUCTION(CODE, TERM, FINALPRICE, CAT1) VALUES ( #{cat1}||CODE_A.NEXTVAL, #{term}, #{finalPrice}, #{cat1})
+		]]>
+	</insert>
+	
+	<insert id="bidPlaceB" parameterType="BidVO">
+		<![CDATA[
+			INSERT INTO AUCTION(CODE, TERM, FINALPRICE, CAT1) VALUES (#{cat1}||CODE_B.NEXTVAL, #{term}, #{finalPrice}, #{cat1})
+		]]>
+	</insert>
+	
+	<insert id="bidPlaceC" parameterType="BidVO">
+		<![CDATA[
+			INSERT INTO AUCTION(CODE, TERM, FINALPRICE, CAT1) VALUES (#{cat1}||CODE_C.NEXTVAL, #{term}, #{finalPrice}, #{cat1})
+		]]>
+	</insert>
+	
+	<insert id="bidPlaceD" parameterType="BidVO">
+		<![CDATA[
+			INSERT INTO AUCTION(CODE, TERM, FINALPRICE, CAT1) VALUES (#{cat1}||CODE_D.NEXTVAL, #{term}, #{finalPrice}, #{cat1})
+		]]>
+	</insert>
+	
+	<insert id="bidPlaceE" parameterType="BidVO">
+		<![CDATA[
+			INSERT INTO AUCTION(CODE, TERM, FINALPRICE, CAT1) VALUES (#{cat1}||CODE_E.NEXTVAL, #{term}, #{finalPrice}, #{cat1})
+		]]>
+	</insert>
+	
+	<insert id="bidPlaceF" parameterType="BidVO">
+		<![CDATA[
+			INSERT INTO AUCTION(CODE, TERM, FINALPRICE, CAT1) VALUES (#{cat1}||CODE_F.NEXTVAL, #{term}, #{finalPrice}, #{cat1})
+		]]>
+	</insert>
+	
+	<insert id="bidPlaceG" parameterType="BidVO">
+		<![CDATA[
+			INSERT INTO AUCTION(CODE, TERM, FINALPRICE, CAT1) VALUES (#{cat1}||CODE_G.NEXTVAL, #{term}, #{finalPrice}, #{cat1})
+		]]>
+	</insert>
+	
+	<insert id="bidPlaceH" parameterType="BidVO">
+		<![CDATA[
+			INSERT INTO AUCTION(CODE, TERM, FINALPRICE, CAT1) VALUES (#{cat1}||CODE_H.NEXTVAL, #{term}, #{finalPrice}, #{cat1})
+		]]>
+	</insert>
+	
+	
+	
+	
+	
+	
+	<update id="replyupdate" parameterType="ReplyVO">
+		<![CDATA[
+			UPDATE REPLY SET STEP=STEP+1 WHERE REF=#{seq}
+		]]>
+	</update> 
+	<insert id="replyplus" parameterType="ReplyVO">
+		<![CDATA[
+		INSERT INTO REPLY(SEQ, ID, CONTENT, CODE, REF,LEV,STEP, LOGTIME) VALUES(SEQ_REPLY.NEXTVAL, #{id}, #{content},#{code},#{seq}, 1,0,SYSDATE)
+		]]>
+	</insert>
+	
+	
+</mapper>

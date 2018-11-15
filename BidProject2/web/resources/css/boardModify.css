@@ -1,0 +1,70 @@
+@charset "UTF-8";
+
+body
+{
+	margin: 0;
+	position: relative;
+	width:100%;
+	height:100%;
+	background-color: #FAFAFA;
+}
+
+a{
+	text-decoration: none;
+	color: white;
+}
+
+.wrap
+{
+	box-sizing:border-box;
+	position: absolute;
+	left:36%;
+	
+	margin: 0 auto;
+	text-align: center;
+	margin-top: 6%;
+}
+
+.btn1
+{
+	width: 120px;
+	height:40px;
+	background-color: #00253E;
+	cursor: pointer;
+	display: inline-block;
+	text-decoration: none;
+	border: none;
+	color: white;
+	border-radius: 2px;
+	margin-top:10px;
+	margin-left: 50px;
+	font-size: 18px;
+}
+
+.btn1:hover{
+	background-color: white;
+	color: #00253E;
+	border: 1px solid #00253E;
+}
+
+.sub
+{
+	padding-right: 10px;
+}
+
+.name
+{
+	padding-right: 10px;
+	line-height: 2em;
+}
+
+.section
+{
+	padding-right: 5px;
+}
+
+.subject,.id,.uname,.content
+{
+	background-color: white;
+}
+

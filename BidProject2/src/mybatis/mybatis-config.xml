@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-config.dtd">
+
+<configuration>
+
+	<typeAliases>
+		<typeAlias type="com.board.dto.BoardDTO" alias="boardDto"/>
+		<typeAlias type="com.user.vo.UserVO" alias="userInfo"/>
+		<typeAlias type="com.category.vo.CategoryVO" alias="categoryVO"/>
+		<typeAlias type="com.auction.vo.BidVO" alias="BidVO"/>
+		<typeAlias type="com.auction.vo.AuctionVO" alias="AuctionVO"/>
+		<typeAlias type="com.auction.vo.ReplyVO" alias="ReplyVO"/>
+		<typeAlias type="com.mypage.vo.TradeVO" alias="TradeVO"/>
+		<typeAlias type="com.ban.vo.BanVO" alias="banVO"/>
+		
+
+	</typeAliases>
+	
+	<mappers>
+		<mapper resource="mybatis/board-mapping.xml"/>
+		<mapper resource="mybatis/user-mapping.xml"/>
+		<mapper resource="mybatis/category-mapping.xml"/>
+		<mapper resource="mybatis/auction-mapping.xml"/>
+		<mapper resource="mybatis/sale-mapping.xml"/>
+		<mapper resource="mybatis/mypage-mapping.xml"/>
+	</mappers>
+	
+</configuration>

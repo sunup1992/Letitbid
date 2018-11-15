@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="saleNameSpace">
+	<select id="code" parameterType="categoryVO" resultType="java.lang.String">
+		<![CDATA[
+			SELECT CODE FROM SALES WHERE PRODNAME=#{prodname} AND ID=#{id}
+		]]>
+	</select>
+	
+	<insert id="saleInsertAA" parameterType="categoryVO">
+		<![CDATA[
+			INSERT INTO SALES (CAT1, ID, TERM, CODE, PRODNAME, PRICE, CONDITION, REF, DESCRIP)
+			VALUES(#{cat1},#{id},#{term},#{cat1}||CODE_AA.NEXTVAL,#{prodname},#{price},#{condition},#{ref},#{descrip})
+		]]>
+	</insert>
+	
+	<insert id="saleInsertBB" parameterType="categoryVO">
+		<![CDATA[
+			INSERT INTO SALES (CAT1, ID, TERM, CODE, PRODNAME, PRICE, CONDITION, REF, DESCRIP)
+			VALUES(#{cat1},#{id},#{term},#{cat1}||CODE_BB.NEXTVAL,#{prodname},#{price},#{condition},#{ref},#{descrip})
+		]]>
+	</insert>
+	
+	<insert id="saleInsertCC" parameterType="categoryVO">
+		<![CDATA[
+			INSERT INTO SALES (CAT1, ID, TERM, CODE, PRODNAME, PRICE, CONDITION, REF, DESCRIP)
+			VALUES(#{cat1},#{id},#{term},#{cat1}||CODE_CC.NEXTVAL,#{prodname},#{price},#{condition},#{ref},#{descrip})
+		]]>
+	</insert>
+	
+	<insert id="saleInsertDD" parameterType="categoryVO">
+		<![CDATA[
+			INSERT INTO SALES (CAT1, ID, TERM, CODE, PRODNAME, PRICE, CONDITION, REF, DESCRIP)
+			VALUES(#{cat1},#{id},#{term},#{cat1}||CODE_DD.NEXTVAL,#{prodname},#{price},#{condition},#{ref},#{descrip})
+		]]>
+	</insert>
+	
+	<insert id="saleInsertEE" parameterType="categoryVO">
+		<![CDATA[
+			INSERT INTO SALES (CAT1, ID, TERM, CODE, PRODNAME, PRICE, CONDITION, REF, DESCRIP)
+			VALUES(#{cat1},#{id},#{term},#{cat1}||CODE_EE.NEXTVAL,#{prodname},#{price},#{condition},#{ref},#{descrip})
+		]]>
+	</insert>
+	
+	<insert id="saleInsertFF" parameterType="categoryVO">
+		<![CDATA[
+			INSERT INTO SALES (CAT1, ID, TERM, CODE, PRODNAME, PRICE, CONDITION, REF, DESCRIP)
+			VALUES(#{cat1},#{id},#{term},#{cat1}||CODE_FF.NEXTVAL,#{prodname},#{price},#{condition},#{ref},#{descrip})
+		]]>
+	</insert>
+	
+	<insert id="saleInsertGG" parameterType="categoryVO">
+		<![CDATA[
+			INSERT INTO SALES (CAT1, ID, TERM, CODE, PRODNAME, PRICE, CONDITION, REF, DESCRIP)
+			VALUES(#{cat1},#{id},#{term},#{cat1}||CODE_GG.NEXTVAL,#{prodname},#{price},#{condition},#{ref},#{descrip})
+		]]>
+	</insert>
+	
+	<insert id="saleInsertHH" parameterType="categoryVO">
+		<![CDATA[
+			INSERT INTO SALES (CAT1, ID, TERM, CODE, PRODNAME, PRICE, CONDITION, REF, DESCRIP)
+			VALUES(#{cat1},#{id},#{term},#{cat1}||CODE_HH.NEXTVAL,#{prodname},#{price},#{condition},#{ref},#{descrip})
+		]]>
+	</insert>
+	
+</mapper>

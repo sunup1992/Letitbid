@@ -1,0 +1,131 @@
+@charset "UTF-8";
+
+a{
+	text-decoration: none;
+	color: white;
+}
+
+body {
+	margin: 0;
+	background-color: #FAFAFA;
+	width: 100vw; height: 100vh;
+}
+
+section.wra0 {
+	width: 100vw; height: 100vh;
+	background-image: url("/BidProject/resources/image/heaven.jpeg");
+	background-size: cover;
+	display: flex;
+	justify-content: center;
+	z-index: 1;
+}
+
+
+div.wra1 {
+    width: 100vw; height: 100vh;
+	background-color: white;
+	display: flex;
+	opacity: 0.8;
+	z-index: 2;
+    animation-name: wra1;
+    animation-duration: 3s;
+    animation-delay: -0.1s;
+    animation-timing-function: ease-in;
+}
+
+@keyframes wra1 {
+    from {
+    	background-color: white;
+    	opacity: 0;
+    }
+    to   {
+    	background-color: white;
+    	opacity: 0.8;
+    	
+    }
+}
+
+div.wra2 {
+	margin: auto;
+	width: 40%;
+}
+
+div.wra3 {
+	padding: 10px;
+	display: flex;
+	flex-flow: row wrap;
+}
+
+div.wra4 {
+	display: flex;
+	flex-flow: column wrap;
+	width: 50%;
+}
+
+.bidImage {
+	width: 100%;
+	object-fit: scale-down;
+	border-radius: 50%;
+	
+}
+
+div.wra5 {
+	display: flex;
+	flex-flow: column wrap;
+	padding-top: 4%;
+	text-align: center;
+}
+
+div.wra6 {
+	display: flex;
+	flex-flow: column wrap;
+	width: 50%;
+	justify-content: space-evenly;
+}
+
+div.wra7 {
+	padding: 2%;
+	text-align: center;
+	line-height: 2em;
+}
+
+div.wra8 {
+	padding: 2%;
+	text-align: center;
+	line-height: 2em;
+}
+
+div.wra9 {
+	display: flex;
+	justify-content: center;
+}
+
+.label {
+	font-size: 1.2em;
+	font-weight: bold;
+}
+
+.prodname {
+	font-size: 1.2em;
+	font-weight: bold;
+}
+
+.finalPrice {
+	font-weight: bold;
+}
+
+.report {
+	all: unset;
+	color: white;
+	width: 70px;
+	text-align: center;
+	cursor: pointer;
+	padding: 8px;
+	background-color: rgb(147, 2, 3);
+	border-radius: 4px;
+	transition: background-color 200ms ease 0ms;
+}
+
+.report:hover {
+	background-color: rgb(222, 2, 3);
+}

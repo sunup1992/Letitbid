@@ -1,0 +1,28 @@
+@charset "UTF-8";
+
+body {
+	margin: 0;
+	background-color: #FAFAFA;
+}
+
+leave {
+	color: #00243e;
+}
+
+.backToMain {
+	display: block;
+	text-decoration: none;
+	width: 100%;
+	padding: 6px;
+	text-align: center;
+	cursor: pointer;
+	font-size: 16px;
+	color: white;
+	border-radius: 3px;
+	background-color: rgb(0, 37, 62);
+	transition: background-color 300ms ease 0ms;
+}
+
+.backToMain:hover {
+	background-color: rgb(42, 69, 136);
+}

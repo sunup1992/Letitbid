@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="boardNameSpace">
+	<select id="boardlist" resultType="boardDto" parameterType="Integer">
+		<![CDATA[
+			SELECT SEQ,ID,USERNAME,SUBJECT,CONTENT,REF,LEV,STEP,PSEQ,REPLY,HIT,TO_CHAR(LOGTIME,'YYYY.MM.DD')AS LOGTIME FROM (SELECT ROWNUM RN, AA.* FROM(SELECT * FROM BOARD ORDER BY REF DESC,STEP ASC)AA) WHERE RN>=#{pg}*10-9 AND RN<=#{pg}*10
+		]]>
+	</select>
+	
+	<select id="totalCount" resultType="Integer">
+		<![CDATA[
+			SELECT COUNT(*) AS NUM FROM BOARD
+		]]>
+	</select>
+	
+	
+	
+	<insert id="insert" parameterType="boardDto">
+		<![CDATA[
+			INSERT INTO BOARD VALUES(SEQ_BOARD.NEXTVAL,#{id},#{username},#{subject},#{content},SEQ_BOARD.CURRVAL,0,0,0,0,0,SYSDATE)
+		]]>
+	</insert>
+	
+	<select id="boardView" parameterType="boardDto" resultType="boardDto">
+		<![CDATA[
+			SELECT * FROM BOARD WHERE SEQ=#{seq}
+		]]>
+	</select>
+	<select id="modify" parameterType="boardDto" resultType="boardDto">
+		<![CDATA[
+			SELECT * FROM BOARD WHERE SEQ=#{seq}
+		]]>
+	</select>
+	
+	<select id="update" parameterType="boardDto" resultType="boardDto">
+		<![CDATA[
+			UPDATE BOARD SET SUBJECT=#{subject},CONTENT=#{content} WHERE SEQ=#{seq}
+		]]>
+	</select>
+	
+	<update id="updatehit" parameterType="Integer">
+		<![CDATA[
+			UPDATE BOARD SET HIT=HIT+1 WHERE SEQ=#{seq}
+		]]>
+	</update> 
+	
+
+	<select id="delete" resultType="boardDto">
+		<![CDATA[
+			DELETE BOARD WHERE SEQ=#{seq}
+		]]>
+	</select>
+	
+	
+	
+	<update id="reply1" parameterType="boardDto">
+		<![CDATA[
+			UPDATE BOARD SET STEP=STEP+1 WHERE REF=#{ref} AND STEP>#{step}
+		]]>
+	</update> 
+	
+	<insert id="reply2" parameterType="boardDto">
+		<![CDATA[
+		INSERT INTO BOARD VALUES(SEQ_BOARD.NEXTVAL,#{id},#{username},#{subject},#{content},#{ref},#{lev},#{step},#{pseq},0,0,SYSDATE)
+		]]>
+	</insert>
+	
+	<update id="reply3" parameterType="boardDto">
+		<![CDATA[
+			UPDATE BOARD SET REPLY=REPLY+1 WHERE SEQ=#{seq}
+		]]>
+	</update> 
+	
+	
+</mapper>

@@ -1,0 +1,300 @@
+@charset "UTF-8";
+
+*{
+	font-family: 'Cinzel';
+}
+a{
+	text-decoration: none;
+	color: white;
+	
+}
+
+/*BODY*****************************************************************************************************/
+
+
+
+body{
+	margin: 0;
+	height: 100%;
+	background-color: #FAFAFA;
+/* 	background-color: #edeae7; */
+
+/* 	background : linear-gradient( 30deg, white ,#edeae7  ); */
+}
+
+#main {
+	background-image: url("/BidProject/resources/image/minimal.jpg");
+	background-size: cover;
+	height: 200px;
+}
+
+
+#main h1{
+	font-size: 50px;
+	width: 100%;
+	margin: auto;
+	text-align: center;
+	color: #DDFFFF;
+	text-shadow: 1px 2px teal; 
+	padding-top: 70px;
+	z-index: 2;
+}
+
+
+input, select{
+	all:unset;
+	padding: 6px;
+	border-bottom:0.1px solid #00243e;
+}
+
+.container{
+	
+	width: 70%;
+	height: 70%;
+	margin: 40px auto;
+	
+}
+
+.outer{
+	
+	display:table;
+	width:100%;
+	height: 100%;
+}
+.inner{
+	display: table-cell;
+	vertical-align: middle;
+	text-align: center;
+}
+
+.centered{
+	position: relative;
+	display: inline-block;
+	width:53%;
+	padding: 1em;
+	color: black;
+	
+}
+
+
+.prodcover{
+	text-align: left;
+	margin-bottom: 18px;
+}
+
+.prodtitle{
+	color: #00243e;
+	font-size: 25px;
+	line-height: 1.5em;
+}
+.descrip{
+	margin-top: 10px;
+}
+
+.prodname{
+	width:96%;
+	border-top: 0 none;
+	border-left: 0 none;
+	border-right: 0 none;
+	border-bottom-color: gray;
+	border-bottom: 1px solid;
+	padding: 6px;
+	margin-left: 5px;
+	
+}
+
+
+
+.selec{
+	margin-top: 30px;
+	border: 1px dotted  #FAFAFA;
+	height: 50%;
+	width: 101%;
+	
+}
+
+
+
+form .label1{
+	color: #00243e;
+	font-size: 18px;
+	line-height: 1.6em;
+}
+
+.termtitle{
+	color: #00243e;
+	font-size: 18px;
+	line-height: 1.6em;
+}
+
+.filetitle{
+	color: #00243e;
+	font-size: 18px;
+	line-height: 1.6em;
+}
+
+
+select{
+	text-align: left;
+	border-top: 0 none;
+	border-left: 0 none;
+	border-right: 0 none;
+	border-color: black;
+	border-bottom: 1px solid;
+	padding: 6px;
+}
+/* //////////////////////////////////////////////////////////////////top */
+.top{
+	text-align:left;
+	border : 1px solid  #FAFAFA;
+	width: 100%;
+	height: 100px;
+}
+.cat1cover{
+	width: 32%;
+	float: left;
+	border : 1px dotted  #FAFAFA;
+}
+
+.condicover{
+	width: 32%;
+	float: left;
+	border : 1px dotted  #FAFAFA;
+	margin-left: 7.7px
+}
+.pricecover{
+	width: 32%;
+	float: left;
+	border : 1px dotted  #FAFAFA;
+	margin-left: 7.7px
+}
+
+.cat1{
+	    
+}
+ 
+ 
+ /*////////////////////////////////////////////////////////////////////// middle */
+ 
+.middle{
+	text-align: left;
+    margin-top: 32px;
+    border: 1px dotted  #FAFAFA;
+    width: 100%;
+    height: 100px;
+}
+
+.termcover{
+	width: 56%;
+	float : left;
+}
+.filecover{
+	width: 11%;
+	float : left;
+	margin-left: 63px;
+}
+
+
+.date{
+	width:170px;
+	float : left;
+}
+.sss{
+	padding : 6px;
+	float:left;
+}
+
+.time{
+	float : left;
+	width:82px;
+	font-size: 14px;
+	padding: 2.4px;
+}
+
+
+.file{
+	width: 30%;
+}
+
+ 
+ /* //////////////////////////////////////////////////////////////////bottom */
+
+
+
+.bottom{
+	text-align: left;
+    margin-top: 32px;
+    border: 1px dotted  #FAFAFA;
+    width: 100%;
+    height: 100px;
+}
+.ref{
+	float : left;
+	width: 60%;
+}
+
+.tag{
+	width : 73%;
+	float : right;
+	font-size: 13px;
+	padding: 4px;
+	color: gray;
+}
+
+
+.button{
+		width: 100%;
+		margin-top: 30px;
+		margin-left: -5px;
+}
+
+.submit{
+	width: 32%;
+	text-align: center;
+	cursor: pointer;
+	font-size: 16px;
+	margin-bottom: 4px;
+	color: white;
+	border-radius: 3px;
+	background-color: rgb(0, 37, 62);
+	transition: background-color 300ms ease 0ms;
+}
+
+.submit:hover{
+	background-color: rgb(42, 69, 136);
+}
+
+.modify{
+	width: 32%;
+	text-align: center;
+	cursor: pointer;
+	font-size: 16px;
+	margin-bottom: 4px;
+	color: white;
+	border-radius: 3px;
+	background-color: rgb(0, 37, 62);
+	transition: background-color 300ms ease 0ms;
+}
+.modify:hover{
+	background-color: rgb(42, 69, 136);
+}
+
+
+.back{
+	
+	width: 32%;
+	text-align: center;
+	cursor: pointer;
+	font-size: 16px;
+	margin-bottom: 4px;
+	color: white;
+	border-radius: 3px;
+	background-color: rgb(0, 37, 62);
+	transition: background-color 300ms ease 0ms;
+}
+
+.back:hover{
+	background-color: rgb(42, 69, 136);
+}
+
+

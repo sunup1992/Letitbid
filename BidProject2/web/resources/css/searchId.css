@@ -1,0 +1,77 @@
+@charset "UTF-8";
+
+a{
+	text-decoration: none;
+	color: white;
+}
+
+.wrap
+{
+	width:50%;
+	height:100%;
+	margin: 0 auto;
+	text-align: center;
+	margin-top: 7%;
+	
+}
+
+
+#username,#phone
+{
+	background-color: white;
+	width:30%;
+	height: 7%;
+	cursor: pointer;
+	font-size: 18px;
+}
+
+.submit
+{
+	width:30.5%;
+	height: 7%;
+	background-color: #00253E;
+	cursor: pointer;
+	display: inline-block;
+	text-decoration: none;
+	border: none;
+	color: white;
+	font-size: 18px;
+	line-height: 2em;
+	letter-spacing: 1px;
+	word-spacing: 5px;
+}
+
+
+.leg
+{
+	text-align: left;
+	line-height: 2em;
+	font-weight: bold;
+	font-size: 20px;
+	letter-spacing: 1px;
+    word-spacing: 2px;
+	
+}
+
+
+.txtphone
+{
+	display: block;
+	padding-right: 170px;
+	line-height: 1em;
+	font-weight: bold;
+}
+
+.txtname
+{
+	display: block;
+	padding-right: 160px;
+	line-height: 1em;
+	font-weight: bold;
+}
+
+body
+{
+	background-color: #FAFAFA;
+	margin: 0;
+}

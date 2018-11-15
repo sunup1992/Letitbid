@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="categoryNameSpace">
+
+	<select id="categorylist" resultType="categoryVO" parameterType="Integer">
+		<![CDATA[
+			SELECT a.CAT1,a.PRODNAME,a.PRICE,FINALPRICE,a.CONDITION,a.REF,CODE,a.ID,a.TERM,a.DESCRIP 
+			FROM (SELECT ROWNUM RN, SALES.* FROM SALES WHERE CONFIRM = 0)a 
+			JOIN (SELECT MAX(finalPrice) AS FINALPRICE, CODE FROM AUCTION GROUP BY CODE) USING(CODE) 
+			WHERE RN>=#{page}*10-9 AND RN<=#{page}*10
+		]]>
+	</select>
+	
+	
+	
+	<select id="totalCount" resultType="Integer">
+		<![CDATA[
+			SELECT COUNT(*) AS NUM FROM SALES
+		]]>
+	</select>
+	
+	
+	
+	<select id="categoryCount" resultType="Integer" parameterType="categoryVO">
+		<![CDATA[
+			SELECT COUNT(*) AS NUM FROM SALES WHERE CAT1=#{cat1}
+		]]>
+	</select>
+
+
+
+	<select id="getlist" resultType="categoryVO" parameterType="categoryVO">
+		<![CDATA[
+			SELECT a.CAT1,a.PRODNAME,a.PRICE,FINALPRICE,a.CONDITION,a.REF,CODE,a.ID,a.TERM,a.DESCRIP 
+			FROM (SELECT ROWNUM RN, SALES.* FROM SALES WHERE CAT1=#{cat1})a
+			JOIN (SELECT MAX(finalPrice) AS FINALPRICE, CODE FROM AUCTION GROUP BY CODE) USING(CODE) 
+			WHERE RN<=10
+		]]>
+	</select>
+
+
+
+	<select id="searchList" resultType="categoryVO" parameterType="String">
+		<![CDATA[
+		SELECT * FROM SALES WHERE PRODNAME LIKE #{word} OR REF LIKE #{word} OR DESCRIP LIKE #{word}
+		]]>
+	</select>
+	
+	
+	
+	<select id="searchCount" resultType="Integer" parameterType="String">
+		<![CDATA[
+		SELECT COUNT(*) FROM SALES WHERE PRODNAME LIKE #{word} OR REF LIKE #{word} OR DESCRIP LIKE #{word}
+		]]>
+	</select>
+	
+</mapper>
+
+
+
+
+

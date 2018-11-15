@@ -1,0 +1,35 @@
+@charset "UTF-8";
+
+body{
+	margin: 0;
+	background-color: #FAFAFA;
+}
+
+a{
+	text-decoration: none;
+}
+
+.wrap
+{
+	width:50%;
+	height:100%;
+	margin: 0 auto;
+	text-align: center;
+	margin-top: 7%;
+	
+}
+
+.box1
+{
+	background-color: black;
+	max-width;
+	height: 50px;
+	margin: 0;	
+	
+}
+
+.idconf
+{
+	font-size: 15px;
+	word-spacing: 1px;
+}

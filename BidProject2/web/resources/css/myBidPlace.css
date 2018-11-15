@@ -1,0 +1,70 @@
+@charset "UTF-8";
+
+section.wrapper1 {
+	border: 1px solid #edecee;
+	box-shadow: 1px 1px 1px #e1e1e4;
+	width: 50%;
+	display: flex;
+	flex-direction: column;
+	margin-left: 25%;
+}
+
+div.wrapper2 {
+	width: 100%;
+	height: 160px;
+}
+
+.wrapper2 .bidPlaceImage {
+	width: 30%;
+	height: 140px;
+	object-fit:scale-down;
+	float: left;
+	margin-top: 10px;
+	margin-bottom: 20px;
+	margin-right: 20px;
+	margin-left: 20px;
+}
+
+.wrapper3 {
+	width: 60%;
+	height: 140px;
+	float: left;
+	margin-top: 14px;
+	margin-bottom: 20px;
+	font-size: 14px;
+}
+
+.wrapper3 .prodname {
+	float: left;
+	margin-top: 10px;
+	font-size: 20px;
+	font-weight: 400;
+}
+
+.wrapper4 {
+	float: left;
+}
+
+.wrapper4 .priceCheck {
+	color: #4d71b1;
+}
+
+.wrapper5 {
+	float: right;
+	border: 1px solid gray;
+	padding: 8px;
+	background-color: rgb(0, 37, 62);
+	border-radius: 4px;
+	transition: background-color 300ms ease 0ms;	
+}
+
+.wrapper5:hover {
+	background-color: rgb(42, 69, 136);
+}
+
+.midLine {
+	width: 95%;
+	border: 0;
+	height: 1px;
+	background: #ccc;
+}

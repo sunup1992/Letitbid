@@ -1,0 +1,216 @@
+@charset "UTF-8";
+*{
+	font-family: 'Cinzel';
+	box-sizing: border-box;
+}
+
+a{
+	text-decoration: none;
+	color: white;
+}
+
+a:hover{
+	text-decoration: none;
+	color: white;
+}
+html {
+	height: 100%;
+}
+
+/*body-------------------------------------------------------------------------------------------------------------*/
+body{
+	margin: 0 auto;
+	width:1519.5px;
+	position: relative;
+	
+}
+
+#main {
+	background-image: url("/BidProject/resources/image/background.jpg");
+	background-size: cover;
+	height: 350px;
+}
+
+#main h1 {
+	color: #DDFFFF;
+	text-shadow: 1px 4px teal; 
+	font-size: 50px;
+	margin: auto;
+	text-align: center;
+	padding-top: 140px;
+	
+}
+
+.deal{
+	font-size:20px;
+	font-weight: bold;
+	position: relative;
+	top: 97px;
+	left: 120px;
+}
+
+.hot{
+	font-weight: bold;
+	color: grey;
+	position: relative;
+	top: 95px;
+	left: 120px;
+}
+
+
+#update{
+	height: 920px;
+}
+
+.farrow{
+	position:absolute;
+	color:#D4D4D4;
+	height: 100px;
+	width: 100px;
+	font-size: 70px;
+	/* margin-top: 320px;
+	margin-left: 20px; */
+	top:421px;
+	right:1px;
+	cursor:pointer;
+}
+
+.arrow{
+	position:absolute;
+	color:#D4D4D4;
+	height: 100px;
+	width: 100px;
+	font-size: 70px;
+	/* margin-top: 320px;
+	margin-left: 20px; */
+	top:980.5px;
+	right:1px;
+	cursor:pointer;
+}
+
+.leftarrow{
+	position:absolute;
+	color:#D4D4D4;
+	height: 100px;
+	width: 100px;
+	font-size: 70px;
+	top:419.5px;
+	right:1355px;
+	cursor:pointer;
+}
+
+/* ////////////////////////////sales내용  start////////////////////////////////////////////////////////// */
+
+
+.wrap0{
+    margin:0 auto;
+    width: 100%;
+	position:relative;
+	padding-top:100px;
+    padding-left: 110px;
+}
+
+.wrap1{
+    width: 230px;
+    height: 136px;
+}
+
+.wrap01{
+    height: 135px;
+    margin-left: 10px;
+    margin-right: 10px;
+    margin-top: -4px;
+}
+
+.product1 {
+	position:relative;
+	height: 345px;
+	width: 250px;
+	border: 1px solid #DCDCDC;
+	float: left;
+	margin-left:8px;
+	margin-top : 10px;
+	margin-bottom: 10px;
+		 
+}
+.photo{
+     margin: 10px 10px 10px 10px;
+}
+
+.prodname{
+	color:black;
+    width: 228px;
+    overflow:hidden;
+    text-overflow:ellipsis;
+    white-space:nowrap;    
+    padding-bottom: 1px;
+}
+
+.prodname>a{
+	color: black;
+	font-weight: bold;
+	font-size: 16px;
+}
+
+
+
+.wrap2{
+	width: 228px;
+	
+	}
+
+.ref{
+	
+	font-size: 11px;
+    height: 38px;
+}
+
+.price{
+	font-size: 18px;
+	display: inline-block;
+	float: right;
+	line-height: 1;
+}
+
+
+.pricetag{
+	display: inline-block;
+}
+
+.term{
+	text-align: right;
+	margin-bottom: 0px;
+	padding-top: 20px;
+	border-top: 1px solid;
+}
+
+
+/* /////////////////////////////////////sales내용 end///////////////////////////////////////////////// */
+section div p {
+	border: 1px solid black;
+	
+}
+
+.footer{
+	overflow:hidden;
+	list-style:none;
+ 	position : inherit; 
+	width : 100%;
+    left: 0;
+    right:0;
+    bottom: 0;
+    padding: 40px 0 40px 90px;
+    margin : 0px;
+	color: white;
+	background: #C4CCCC;
+}
+
+.footer li{
+	float: left;
+	padding-right: 50px;
+}
+.footerdesc{
+	background-color:#C4CCCC;
+	padding: 0px 0 35px 90px;
+	color: white;
+}

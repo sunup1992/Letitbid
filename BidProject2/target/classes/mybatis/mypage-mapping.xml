@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="myPageMapper">
+	<select id="view" resultType="categoryVO" parameterType="categoryVO">
+		<![CDATA[
+			SELECT PRODNAME, CODE, TERM, FINAL AS PRICE, CONFIRM, A.ID
+			FROM (SELECT FINAL, CODE, ID FROM(SELECT MAX(FINALPRICE) AS FINAL,CODE FROM AUCTION GROUP BY CODE) JOIN AUCTION USING(code) WHERE FINALPRICE=FINAL)A
+			JOIN SALES B USING(CODE)
+			WHERE B.ID=#{id}
+			ORDER BY CONFIRM DESC, TERM ASC
+		]]>
+	</select>
+	
+	<select id="viewByCode" resultType="categoryVO" parameterType="java.lang.String">
+		<![CDATA[
+			SELECT * FROM SALES WHERE ID=(SELECT ID FROM SALES WHERE CODE=#{code})
+		]]>
+	</select>
+	
+	<update id="update" parameterType="java.lang.String">
+		<![CDATA[
+			UPDATE SALES SET
+			CONFIRM = 1
+			WHERE CODE = #{code}
+		]]>
+	</update>
+	
+	<select id="bidPlace" resultType="categoryVO" parameterType="categoryVO">
+		<![CDATA[
+			SELECT PRODNAME, CODE, TERM, a.PRICE, FINALPRICE, CONFIRM
+			FROM (SELECT MAX(FINALPRICE) AS PRICE, CODE FROM AUCTION WHERE ID=#{id} GROUP BY CODE)a
+			JOIN SALES USING(CODE)
+			JOIN (SELECT MAX(FINALPRICE) AS FINALPRICE, CODE FROM AUCTION GROUP BY CODE) USING(CODE)
+			ORDER BY CONFIRM DESC, TERM ASC
+		]]>
+	</select>
+	
+	<select id="trade" resultType="TradeVO" parameterType="TradeVO">
+		<![CDATA[
+			SELECT USERNAME AS USERNAME_SELLER, ROADFULLADDR AS ROADFULLADDR_SELLER, PHONE AS PHONE_SELLER, CODE, PRODNAME,DESCRIP, FINALPRICE, USERNAME_BIDDER, ROADFULLADDR_BIDDER, PHONE_BIDDER
+			FROM (SELECT * FROM SALES WHERE CODE = #{code})
+			JOIN (SELECT MAX(FINALPRICE) AS FINALPRICE, CODE FROM AUCTION WHERE CODE = #{code} GROUP BY CODE) USING(CODE)
+			JOIN USER1 USING(ID)
+			JOIN (SELECT USERNAME AS USERNAME_BIDDER, ROADFULLADDR AS ROADFULLADDR_BIDDER, PHONE AS PHONE_BIDDER, CODE FROM (SELECT ID, CODE FROM AUCTION WHERE CODE = #{code} AND FINALPRICE = #{finalPrice}) JOIN USER1 USING(ID)) USING(CODE)
+		]]>
+	</select>
+	
+	
+	<insert id="ban" parameterType="banVO">
+		<![CDATA[
+			INSERT INTO BAN VALUES(#{code},#{prodname}, #{seller_name}, #{buyer_name}, #{reason})
+		]]>
+	</insert>
+	
+	<select id="banlist" resultType="banVO">
+		<![CDATA[
+			SELECT * FROM BAN
+		]]>
+	</select>
+	
+	
+</mapper>

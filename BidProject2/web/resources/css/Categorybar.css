@@ -1,0 +1,36 @@
+@charset "UTF-8";
+
+a{
+	text-decoration: none;
+}
+
+nav a{
+	color: white;
+}
+
+a:hover{
+	text-decoration: none;
+}
+
+nav#filter{
+	margin-top: 0;
+	background-color: #272727;
+	height: 60px;
+	padding-top: 12px;
+}
+
+#filter a {
+	padding: 10px;
+}
+
+.boldmenu{
+	color: #DDFFFF;
+	font-size: 28px;
+	font-weight: bold;
+}
+
+.qna{
+	color: #DDFFFF;
+	font-size: 28px;
+	font-weight: bold;
+}
