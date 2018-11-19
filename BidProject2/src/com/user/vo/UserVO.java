@@ -10,8 +10,17 @@ public class UserVO {
 	private String username;
 	private String pwquestion;
 	private String pwanswer;
+	private String naver_code;
 	private int ban;
 	
+	public String getNaver_code() {
+		return naver_code;
+	}
+
+	public void setNaver_code(String naver_code) {
+		this.naver_code = naver_code;
+	}
+
 	public int getBan() {
 		return ban;
 	}

@@ -16,6 +16,11 @@ public class UserDao {
 		return vo;
 	}
 	
+	public UserVO naverLogin(UserVO vo) {
+		return factory.openSession().selectOne("bidMapper.naverLogin", vo);
+	}
+	
+	
 	public boolean insertUser(UserVO user) {
 		int n = factory.openSession().insert("bidMapper.insertUser", user);
 		return (n > 0) ? true : false;
@@ -46,4 +51,6 @@ public class UserDao {
 		UserVO vo = factory.openSession().selectOne("bidMapper.idcheck", user);
 		return vo;
 	}
+
+	
 }

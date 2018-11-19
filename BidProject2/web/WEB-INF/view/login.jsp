@@ -39,7 +39,8 @@ function enterkey() {
 <br>
 <br>
  <a href="/BidProject/searchId.go">아이디 찾기</a>&nbsp;&nbsp;&nbsp;&nbsp;
-<a href="/BidProject/searchPassword.go">비밀번호 찾기</a>
+<a href="/BidProject/searchPassword.go">비밀번호 찾기</a><br><br>
+<div id="naver_id_login" style="text-align:center"><a href="${url}"><img width="223" src="${pageContext.request.contextPath}/resources/image/naver_Bn_Green.PNG"/></a></div>
 </div>
 </body>
 </html>

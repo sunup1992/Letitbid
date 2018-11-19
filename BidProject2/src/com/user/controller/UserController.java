@@ -2,11 +2,13 @@ package com.user.controller;
 
 
 
+import java.io.IOException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
-
+import org.json.simple.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.util.AlternativeJdkIdGenerator;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -14,10 +16,10 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
-
 import com.category.service.CategoryService;
 import com.category.vo.CategoryVO;
 import com.category.vo.CatogoryPaging;
+import com.github.scribejava.core.model.OAuth2AccessToken;
 import com.user.service.UserService;
 import com.user.vo.UserVO;
 
@@ -27,6 +29,16 @@ public class UserController {
 	UserService service;
 	@Autowired
 	CategoryService categoryService;
+	/* NaverLoginBO */
+	@Autowired
+	NaverLoginBO naverLoginBO;
+	
+
+	private String apiResult = null;
+	private JsonStringParse jsonparse = new JsonStringParse();
+
+	
+	
 	
 	@RequestMapping(value="/main.go", method=RequestMethod.GET)
 	public ModelAndView list(@ModelAttribute CategoryVO category) {
@@ -34,10 +46,14 @@ public class UserController {
 		return new ModelAndView("main", "list", categoryService.categoryList(category.getPage()));
 	}
 	
+	
 
 	
+	
 	@RequestMapping("/login.go")
-	public ModelAndView login() {
+	public ModelAndView login(Model model, HttpSession session) {
+		String naverAuthUrl = naverLoginBO.getAuthorizationUrl(session);
+		model.addAttribute("url", naverAuthUrl);
 		return new ModelAndView("login");
 	}
 	
@@ -53,6 +69,47 @@ public class UserController {
 		}
 	}
 	
+//네이버 로그인
+	@RequestMapping(value="/naverLogin.go",method = RequestMethod.GET)
+	public ModelAndView naverLogin(@RequestParam String code, @RequestParam String state, HttpSession session,  HttpServletRequest request) throws IOException {
+		
+		
+		OAuth2AccessToken oauthToken = naverLoginBO.getAccessToken(session, code, state);
+		apiResult = naverLoginBO.getUserProfile(oauthToken);
+		
+		JSONObject jsonobj = jsonparse.stringToJson(apiResult, "response");
+		String naver_code = jsonparse.JsonToString(jsonobj, "id");
+		String name = jsonparse.JsonToString(jsonobj, "name");
+
+		UserVO vo = new UserVO();
+		vo.setNaver_code(naver_code);
+		vo.setUsername(name);
+
+		try {
+			
+			UserVO naverVO = service.naverLogin(vo);
+			HttpSession session2 = request.getSession();
+			if(naverVO == null) {
+				System.out.println("controller : " + vo.getNaver_code());
+				return new ModelAndView("insert", "naver_vo", vo);
+			}else {
+				session2.setAttribute("loginOK", naverVO);
+				CatogoryPaging.categorycheck = false;
+				return new ModelAndView("main", "list", categoryService.categoryList(1));
+			}
+			
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
+
+		return new ModelAndView("login");
+
+		
+	}
+	
+	
 	@RequestMapping("/logout.go")
 	public ModelAndView logout(HttpServletRequest request) {
 		HttpSession session = request.getSession();
@@ -64,15 +121,19 @@ public class UserController {
 	
 	@RequestMapping("/insert.go")
 	public ModelAndView insert() {
-		return new ModelAndView("insert");
+		UserVO vo = null;
+		return new ModelAndView("insert", "naver_vo", vo);
 	}
 	
 	@RequestMapping(value="/insertProc.go", method=RequestMethod.POST)
 	public ModelAndView insertProc(@ModelAttribute UserVO user) {
+		System.out.println(user.getId());
+		System.out.println(user.getUsername());
+		System.out.println(user.getNaver_code());
 		if(service.insertUser(user)) {
 			return new ModelAndView("insertOK");
 		}
-		return null;
+		return new ModelAndView("insertOK");
 	}
 	
 	@RequestMapping(value="/idcheck.go", method=RequestMethod.GET)

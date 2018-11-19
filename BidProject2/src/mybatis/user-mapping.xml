@@ -9,10 +9,16 @@
 	</select>
 	
 	
+	<select id="naverLogin" parameterType="userInfo" resultType="userInfo">
+		<![CDATA[
+			SELECT * FROM USER1 WHERE NAVER_CODE = #{naver_code}
+		]]>
+	</select>
+	
 	<insert id="insertUser" parameterType="userInfo">
 		<![CDATA[
-			INSERT INTO USER1(ID, PASSWORD, USERNAME, ROADFULLADDR, PHONE, PWQUESTION, PWANSWER)
-			VALUES (#{id}, #{password}, #{username}, #{roadFullAddr}, #{phone}, #{pwquestion}, #{pwanswer})
+			INSERT INTO USER1(ID, PASSWORD, USERNAME, ROADFULLADDR, PHONE, PWQUESTION, PWANSWER, NAVER_CODE)
+			VALUES (#{id}, #{password}, #{username}, #{roadFullAddr}, #{phone}, #{pwquestion}, #{pwanswer}, #{naver_code})
 		]]>
 	</insert>
 	

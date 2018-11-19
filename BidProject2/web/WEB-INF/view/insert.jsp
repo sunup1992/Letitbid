@@ -12,7 +12,7 @@
 		<section>
 			<div class="wrap">
 				<form action="/BidProject/insertProc.go" method="post" name="form" onsubmit="return Validate();">
-				
+					<input type="hidden" id="naver_code"  name="naver_code" value="${naver_vo.naver_code}">
 					<label for="id" class="label">아이디</label><br>
 					<input type="text" id="id" class="textbox" name="id" maxlength="12" autocomplete="off"/><br>
 					<span id="idch"></span><br>
@@ -25,7 +25,8 @@
 					<span id="pwch"></span><br>
 					
 					<label for="username" class="label">이름</label><br>
-					<input type="text" id="username" class="textbox" name="username"/><br>
+					<input type="text" id="username" class="textbox" name="username" value="${naver_vo.username}">
+					<br>
 					<span id="usernamech"></span><br>
 					
 					<label for="roadFullAddr" class="label">주소</label><br>

@@ -8,9 +8,11 @@ PASSWORD varchar2(20) not null,
 ROADFULLADDR varchar2(200) not null,
 PHONE varchar2(20) not null,
 PWQUESTION varchar2(100) not null,
-PWANSWER varchar2(20) not null
+PWANSWER varchar2(20) not null,
+NAVER_CODE varchar2(20)
 );
 
+ALTER TABLE USER1 ADD (NAVER_CODE varchar2(20)); 
 
 insert into USER1 values('1','TEST','1','TEST ADDR','1111','??','!!')
 insert into USER1 values('encore','ø£ƒ⁄æ∆','encore','∫¿√µµø 202»£','1111','1+1=?','2');
@@ -21,3 +23,8 @@ insert into USER1 values('jenni7','Ω‹','jenni7','¿Ã√Ãµø','1111','1+1=?','2');
 insert into USER1 values('jeongjin','¡¯Ω‹','jeongjin','∆ƒ¡÷ ≈∫«ˆ','1111','1+1=?','2');
 insert into USER1 values('jin','£t','jin','∏∂∞Ó','1111','1+1=?','2');
 insert into USER1 values('may','∏≈¿Ã','may','∞≠≥≤','1111','1+1=?','2');
+
+update user1 set naver_code = '0' where id='momo'
+update user1 set naver_code = '48996137' where id='momo'
+
+

@@ -14,7 +14,10 @@ public class UserService {
 	public UserVO loginUser(UserVO user) {
 		return dao.loginUser(user);
 	}
-
+	public UserVO naverLogin(UserVO vo) {
+		return dao.naverLogin(vo);
+	}
+	
 	public boolean insertUser(UserVO user) {
 		return dao.insertUser(user);
 	}
@@ -38,4 +41,6 @@ public class UserService {
 	public UserVO idcheck(String user) {
 		return dao.idcheck(user);
 	}
+
+	
 }
