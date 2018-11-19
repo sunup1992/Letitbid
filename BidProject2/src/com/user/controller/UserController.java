@@ -84,13 +84,11 @@ public class UserController {
 		UserVO vo = new UserVO();
 		vo.setNaver_code(naver_code);
 		vo.setUsername(name);
-
 		try {
 			
 			UserVO naverVO = service.naverLogin(vo);
 			HttpSession session2 = request.getSession();
 			if(naverVO == null) {
-				System.out.println("controller : " + vo.getNaver_code());
 				return new ModelAndView("insert", "naver_vo", vo);
 			}else {
 				session2.setAttribute("loginOK", naverVO);
@@ -127,9 +125,6 @@ public class UserController {
 	
 	@RequestMapping(value="/insertProc.go", method=RequestMethod.POST)
 	public ModelAndView insertProc(@ModelAttribute UserVO user) {
-		System.out.println(user.getId());
-		System.out.println(user.getUsername());
-		System.out.println(user.getNaver_code());
 		if(service.insertUser(user)) {
 			return new ModelAndView("insertOK");
 		}
